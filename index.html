@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MONAL RESTAURANT | مطعم مونال — Al Hoora, Kingdom of Bahrain</title>
+    <meta name="description" content="Authentic Pakistani & Desi Cuisine in Al Hoora, Kingdom of Bahrain. Free Delivery +973-77907370. Order online via WhatsApp.">
+    
+    <!-- Google Fonts: Cinzel Decorative, Playfair Display, Inter & Cairo (for crisp Arabic typography) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800&family=Cinzel+Decorative:wght@700;900&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            royal: '#143829',
+                            deep: '#0d261b',
+                            light: '#1e4d39'
+                        },
+                        gold: {
+                            antique: '#d4a338',
+                            rich: '#b8861e',
+                            bright: '#f2cc68',
+                            pale: '#f7e8c4'
+                        },
+                        parchment: {
+                            base: '#f9f5eb',
+                            card: '#fffdf8',
+                            warm: '#f2ead7'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        display: ['"Cinzel Decorative"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                        arabic: ['"Cairo"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Theme Styles & Animations */
+        :root {
+            --emerald-royal: #143829;
+            --emerald-deep: #0d261b;
+            --gold-antique: #d4a338;
+            --gold-bright: #f2cc68;
+            --parchment-base: #f9f5eb;
+        }
+
+        body {
+            background-color: var(--parchment-base);
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(212, 163, 56, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 85% 30%, rgba(20, 56, 41, 0.06) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a338' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            color: #1a241e;
+            overflow-x: hidden;
+        }
+
+        /* Swaying Islamic Lantern Animation */
+        @keyframes lanternSway {
+            0%, 100% { transform: rotate(-4deg); }
+            50% { transform: rotate(4deg); }
+        }
+        @keyframes lanternSwayReverse {
+            0%, 100% { transform: rotate(4deg); }
+            50% { transform: rotate(-4deg); }
+        }
+        @keyframes lanternGlow {
+            0%, 100% { opacity: 0.75; filter: drop-shadow(0 0 6px rgba(242, 204, 104, 0.7)); }
+            50% { opacity: 1; filter: drop-shadow(0 0 14px rgba(242, 204, 104, 1)); }
+        }
+
+        .lantern-left {
+            transform-origin: top center;
+            animation: lanternSway 4.8s ease-in-out infinite;
+        }
+        .lantern-right {
+            transform-origin: top center;
+            animation: lanternSwayReverse 5.2s ease-in-out infinite;
+        }
+        .lantern-bulb {
+            animation: lanternGlow 3s ease-in-out infinite;
+        }
+
+        /* Gold Shimmer Effect */
+        @keyframes goldShimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .shimmer-gold {
+            background: linear-gradient(90deg, #b8861e 0%, #f2cc68 35%, #d4a338 50%, #f2cc68 65%, #b8861e 100%);
+            background-size: 200% auto;
+            animation: goldShimmer 4.5s linear infinite;
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal-card {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar for Category Pills */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Subtle Ornamental Card Border */
+        .royal-card {
+            background: linear-gradient(180deg, #fffdf8 0%, #faf4e6 100%);
+            border: 1px solid rgba(212, 163, 56, 0.38);
+            box-shadow: 0 8px 24px -6px rgba(20, 56, 41, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+        .royal-card:hover {
+            transform: translateY(-3px);
+            border-color: #d4a338;
+            box-shadow: 0 14px 30px -8px rgba(20, 56, 41, 0.16);
+        }
+
+        /* Floating Delivery Scooter Bounce */
+        @keyframes scooterRide {
+            0%, 100% { transform: translateX(0px) translateY(0px); }
+            25% { transform: translateX(3px) translateY(-1.5px); }
+            50% { transform: translateX(6px) translateY(0px); }
+            75% { transform: translateX(3px) translateY(-1px); }
+        }
+        .scooter-anim {
+            animation: scooterRide 2.4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-emerald-royal selection:text-gold-bright">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-emerald-deep text-gold-pale text-xs sm:text-sm py-2 px-4 border-b border-gold-antique/30">
+        <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="font-medium tracking-wide">AL HOORA, KINGDOM OF BAHRAIN</span>
+                <span class="hidden sm:inline text-gold-antique">•</span>
+                <span class="hidden sm:inline font-arabic text-gold-bright">الحورة، مملكة البحرين</span>
+            </div>
+            <div class="flex items-center gap-3 ml-auto sm:ml-0">
+                <span class="inline-flex items-center gap-1.5 font-semibold text-gold-bright">
+                    <svg class="w-4 h-4 scooter-anim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="5.5" cy="17.5" r="2.5"/><circle cx="18.5" cy="17.5" r="2.5"/>
+                        <path d="M15 6h2l3 5.5v4h-2M8 17.5h8M5.5 15l2.5-6h5v6"/>
+                    </svg>
+                    <span>FREE DELIVERY</span>
+                    <span class="font-arabic text-xs bg-gold-antique/20 px-2 py-0.5 rounded-full border border-gold-antique/40">التوصيل مجاني</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Header with Exact Custom SVG Logo & Swaying Lanterns -->
+    <header class="relative overflow-hidden bg-gradient-to-b from-[#f4ebd4] via-[#f9f5eb] to-[#f9f5eb] pt-4 pb-8 px-3 sm:px-6 border-b-2 border-gold-antique/40">
+        <!-- Subtle Silhouette Mosque Skyline Backdrop -->
+        <div class="absolute inset-x-0 bottom-0 h-32 opacity-[0.07] pointer-events-none select-none overflow-hidden">
+            <svg viewBox="0 0 1200 160" preserveAspectRatio="none" class="w-full h-full fill-emerald-royal">
+                <path d="M0,160 L0,120 L40,120 L40,90 Q60,60 80,90 L80,120 L130,120 L130,70 L138,45 L146,70 L146,120 L210,120 Q250,40 290,120 L350,120 L350,85 Q370,65 390,85 L390,120 L460,120 L460,55 L468,25 L476,55 L476,120 L540,120 Q600,20 660,120 L724,120 L724,55 L732,25 L740,55 L740,120 L810,120 Q830,65 850,85 L850,120 L910,120 Q950,40 990,120 L1054,120 L1054,70 L1062,45 L1070,70 L1070,120 L1120,120 L1120,90 Q1140,60 1160,90 L1160,120 L1200,120 L1200,160 Z"/>
+            </svg>
+        </div>
+
+        <!-- Top Utility Bar inside Hero (Direct Call) -->
+        <div class="max-w-6xl mx-auto flex items-center justify-end relative z-20 mb-2">
+            <a href="tel:+97377907370" class="inline-flex items-center gap-2 bg-white/90 hover:bg-white text-emerald-royal text-xs sm:text-sm font-bold px-3.5 py-2 rounded-full shadow-sm border border-gold-antique/60 transition-all">
+                <svg class="w-4 h-4 text-gold-rich" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                </svg>
+                <span>+973-77907370</span>
+            </a>
+        </div>
+
+        <!-- Central Custom MONAL Emblem Container with Flanking Lanterns & Flags -->
+        <div class="max-w-5xl mx-auto relative flex items-center justify-center pt-1 pb-2">
+            
+            <!-- Left Hanging Lantern + Pakistan Flag -->
+            <div class="hidden sm:flex flex-col items-center mr-4 md:mr-8 -mt-8 select-none">
+                <div class="mb-3 rounded-md overflow-hidden shadow-md border border-gold-antique/60 w-12 h-8 flex transform -rotate-3 hover:rotate-0 transition-transform" title="Authentic Pakistani Flavors">
+                    <div class="w-1/4 bg-white h-full"></div>
+                    <div class="w-3/4 bg-[#01411C] h-full flex items-center justify-center">
+                        <svg viewBox="0 0 24 24" class="w-4 h-4 fill-white">
+                            <path d="M13.5 4.5a7.5 7.5 0 1 0 6.2 11.7 6 6 0 1 1-6.2-11.7zm3.2 3.1.8 1.7 1.8.2-1.3 1.3.3 1.8-1.6-.9-1.6.9.3-1.8-1.3-1.3 1.8-.2.8-1.7z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="lantern-left">
+                    <svg width="54" height="125" viewBox="0 0 60 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="30" y1="0" x2="30" y2="28" stroke="#b8861e" stroke-width="2"/>
+                        <circle cx="30" cy="31" r="4" stroke="#d4a338" stroke-width="2" fill="#f9f5eb"/>
+                        <path d="M22 42 Q30 32 38 42 L44 52 H16 L22 42Z" fill="url(#goldGrad)"/>
+                        <path d="M16 52 L12 88 L20 104 H40 L48 88 L44 52 H16Z" fill="url(#lanternGlass)" stroke="#b8861e" stroke-width="2"/>
+                        <path d="M23 52 L21 88 L25 104 M37 52 L39 88 L35 104" stroke="#b8861e" stroke-width="1.3"/>
+                        <ellipse class="lantern-bulb" cx="30" cy="76" rx="7" ry="11" fill="#fff4b8"/>
+                        <path d="M20 104 L30 118 L40 104 H20Z" fill="url(#goldGrad)"/>
+                        <circle cx="30" cy="122" r="2.5" fill="#b8861e"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- EXACT RECREATION OF MONAL RESTAURANT WINGED DOME LOGO -->
+            <div class="w-full max-w-xl mx-auto text-center relative z-10">
+                <svg viewBox="0 0 680 265" class="w-full h-auto drop-shadow-sm" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Monal Restaurant Official Crest Logo">
+                    <defs>
+                        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#f2cc68"/>
+                            <stop offset="45%" stop-color="#d4a338"/>
+                            <stop offset="100%" stop-color="#9e6f14"/>
+                        </linearGradient>
+                        <linearGradient id="domeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#f5d57a"/>
+                            <stop offset="50%" stop-color="#cf9b2d"/>
+                            <stop offset="100%" stop-color="#8c5f0d"/>
+                        </linearGradient>
+                        <radialGradient id="lanternGlass" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#fff8d6"/>
+                            <stop offset="70%" stop-color="#f5c856"/>
+                            <stop offset="100%" stop-color="#c98e1e"/>
+                        </radialGradient>
+                    </defs>
+
+                    <line x1="340" y1="8" x2="340" y2="26" stroke="#b8861e" stroke-width="2.5" stroke-linecap="round"/>
+                    <circle cx="340" cy="18" r="3" fill="#d4a338"/>
+                    <path d="M337 5 A5 5 0 1 0 344 10 A3.8 3.8 0 1 1 337 5Z" fill="#b8861e"/>
+
+                    <path d="M304 68 C304 42, 322 28, 340 24 C358 28, 376 42, 376 68 Z" fill="url(#domeGrad)" stroke="#8c5f0d" stroke-width="1.2"/>
+                    <path d="M340 24 L340 68 M326 31 C322 45, 322 57, 322 68 M354 31 C358 45, 358 57, 358 68" stroke="#8c5f0d" stroke-width="1" opacity="0.55" fill="none"/>
+                    <rect x="301" y="68" width="78" height="16" rx="2" fill="url(#goldGrad)" stroke="#8c5f0d" stroke-width="1"/>
+                    <path d="M312 84 V75 A4 4 0 0 1 320 75 V84 Z M328 84 V75 A4 4 0 0 1 336 75 V84 Z M344 84 V75 A4 4 0 0 1 352 75 V84 Z M360 84 V75 A4 4 0 0 1 368 75 V84 Z" fill="#143829"/>
+
+                    <rect x="287" y="54" width="8" height="30" fill="url(#goldGrad)" stroke="#8c5f0d" stroke-width="0.8"/>
+                    <path d="M286 54 Q291 42 296 54 Z" fill="#b8861e"/>
+                    <line x1="291" y1="41" x2="291" y2="46" stroke="#b8861e" stroke-width="1.5"/>
+
+                    <rect x="385" y="54" width="8" height="30" fill="url(#goldGrad)" stroke="#8c5f0d" stroke-width="0.8"/>
+                    <path d="M384 54 Q389 42 394 54 Z" fill="#b8861e"/>
+                    <line x1="389" y1="41" x2="389" y2="46" stroke="#b8861e" stroke-width="1.5"/>
+
+                    <g fill="url(#goldGrad)" stroke="#8c5f0d" stroke-width="0.8">
+                        <path d="M284 56 C240 42, 185 32, 140 36 C175 48, 225 56, 284 63 Z"/>
+                        <path d="M284 64 C242 54, 195 50, 155 56 C188 65, 232 69, 284 71 Z"/>
+                        <path d="M284 72 C248 67, 208 67, 174 74 C205 80, 242 81, 284 79 Z"/>
+                        <path d="M284 80 C254 78, 224 81, 196 88 C224 92, 254 90, 284 86 Z"/>
+                        <path d="M284 87 C262 88, 240 92, 220 99 C242 101, 264 98, 284 93 Z"/>
+                    </g>
+                    <path d="M265 98 C230 102, 195 96, 178 108 C166 116, 180 128, 194 120 C203 114, 196 105, 188 109" fill="none" stroke="#b8861e" stroke-width="2.2" stroke-linecap="round"/>
+                    <path d="M235 103 C215 114, 198 116, 192 126" fill="none" stroke="#d4a338" stroke-width="1.6" stroke-linecap="round"/>
+
+                    <g fill="url(#goldGrad)" stroke="#8c5f0d" stroke-width="0.8">
+                        <path d="M396 56 C440 42, 495 32, 540 36 C505 48, 455 56, 396 63 Z"/>
+                        <path d="M396 64 C438 54, 485 50, 525 56 C492 65, 448 69, 396 71 Z"/>
+                        <path d="M396 72 C432 67, 472 67, 506 74 C475 80, 438 81, 396 79 Z"/>
+                        <path d="M396 80 C426 78, 456 81, 484 88 C456 92, 426 90, 396 86 Z"/>
+                        <path d="M396 87 C418 88, 440 92, 460 99 C438 101, 416 98, 396 93 Z"/>
+                    </g>
+                    <path d="M415 98 C450 102, 485 96, 502 108 C514 116, 500 128, 486 120 C477 114, 484 105, 492 109" fill="none" stroke="#b8861e" stroke-width="2.2" stroke-linecap="round"/>
+                    <path d="M445 103 C465 114, 482 116, 488 126" fill="none" stroke="#d4a338" stroke-width="1.6" stroke-linecap="round"/>
+
+                    <path d="M268 92 Q340 84 412 92 Q340 98 268 92 Z" fill="url(#goldGrad)"/>
+
+                    <text x="340" y="168" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-weight="800" font-size="76" letter-spacing="7" fill="#143829" stroke="#0d261b" stroke-width="0.8">MONAL</text>
+
+                    <line x1="175" y1="184" x2="505" y2="184" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+                    <circle cx="340" cy="184" r="3.5" fill="#b8861e"/>
+
+                    <path d="M218 208 C195 208, 182 195, 168 202 C158 207, 164 220, 175 216 C183 213, 180 205, 174 207" fill="none" stroke="#b8861e" stroke-width="2.2" stroke-linecap="round"/>
+                    <path d="M202 214 C194 222, 186 225, 188 232" fill="none" stroke="#d4a338" stroke-width="1.8" stroke-linecap="round"/>
+
+                    <path d="M462 208 C485 208, 498 195, 512 202 C522 207, 516 220, 505 216 C497 213, 500 205, 506 207" fill="none" stroke="#b8861e" stroke-width="2.2" stroke-linecap="round"/>
+                    <path d="M478 214 C486 222, 494 225, 492 232" fill="none" stroke="#d4a338" stroke-width="1.8" stroke-linecap="round"/>
+
+                    <text x="340" y="218" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-weight="700" font-size="25" letter-spacing="5" fill="#b8861e">RESTAURANT W.L.L.</text>
+
+                    <text x="340" y="252" text-anchor="middle" font-family="'Cairo', sans-serif" font-weight="800" font-size="23" fill="#143829">مطعم مونال ذ.م.م</text>
+                </svg>
+            </div>
+
+            <!-- Right Hanging Lantern + Bahrain Flag -->
+            <div class="hidden sm:flex flex-col items-center ml-4 md:ml-8 -mt-8 select-none">
+                <div class="mb-3 rounded-md overflow-hidden shadow-md border border-gold-antique/60 w-12 h-8 flex transform rotate-3 hover:rotate-0 transition-transform" title="Proudly Serving Kingdom of Bahrain">
+                    <svg viewBox="0 0 60 36" class="w-full h-full">
+                        <rect width="60" height="36" fill="#CE1126"/>
+                        <polygon points="0,0 16,0 24,3.6 16,7.2 24,10.8 16,14.4 24,18 16,21.6 24,25.2 16,28.8 24,32.4 16,36 0,36" fill="#FFFFFF"/>
+                    </svg>
+                </div>
+                <div class="lantern-right">
+                    <svg width="54" height="125" viewBox="0 0 60 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="30" y1="0" x2="30" y2="28" stroke="#b8861e" stroke-width="2"/>
+                        <circle cx="30" cy="31" r="4" stroke="#d4a338" stroke-width="2" fill="#f9f5eb"/>
+                        <path d="M22 42 Q30 32 38 42 L44 52 H16 L22 42Z" fill="url(#goldGrad)"/>
+                        <path d="M16 52 L12 88 L20 104 H40 L48 88 L44 52 H16Z" fill="url(#lanternGlass)" stroke="#b8861e" stroke-width="2"/>
+                        <path d="M23 52 L21 88 L25 104 M37 52 L39 88 L35 104" stroke="#b8861e" stroke-width="1.3"/>
+                        <ellipse class="lantern-bulb" cx="30" cy="76" rx="7" ry="11" fill="#fff4b8"/>
+                        <path d="M20 104 L30 118 L40 104 H20Z" fill="url(#goldGrad)"/>
+                        <circle cx="30" cy="122" r="2.5" fill="#b8861e"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Flag & Heritage Pill Strip -->
+        <div class="flex sm:hidden items-center justify-center gap-3 mt-1 mb-3">
+            <span class="inline-flex items-center gap-1.5 bg-white/80 border border-gold-antique/50 px-2.5 py-1 rounded-full text-xs font-semibold text-emerald-royal shadow-xs">
+                <span class="w-3.5 h-2.5 inline-block rounded-xs overflow-hidden border border-gray-300">
+                    <span class="block w-full h-full bg-[#01411C] border-l-4 border-white"></span>
+                </span>
+                Pakistani Cuisine
+            </span>
+            <span class="text-gold-antique">✦</span>
+            <span class="inline-flex items-center gap-1.5 bg-white/80 border border-gold-antique/50 px-2.5 py-1 rounded-full text-xs font-semibold text-emerald-royal shadow-xs">
+                <span class="w-3.5 h-2.5 inline-block rounded-xs overflow-hidden border border-gray-300 bg-[#CE1126] border-l-4 border-white"></span>
+                Al Hoora, Bahrain
+            </span>
+        </div>
+
+        <!-- Today's Weekly Special Highlight Banner -->
+        <div id="todaySpecialBanner" class="max-w-3xl mx-auto mt-2 bg-emerald-royal text-parchment-base rounded-2xl p-3 sm:p-4 shadow-lg border border-gold-antique/60 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div class="flex items-center gap-3 text-center sm:text-left">
+                <div class="w-10 h-10 rounded-xl bg-gold-antique/20 border border-gold-antique flex items-center justify-center shrink-0 text-gold-bright">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="flex items-center justify-center sm:justify-start gap-2">
+                        <span id="todayDayBadge" class="text-[11px] uppercase tracking-wider font-bold bg-gold-antique text-emerald-deep px-2 py-0.5 rounded-full">TODAY'S SPECIAL</span>
+                        <span class="text-xs text-gold-pale/80 font-arabic">طبق اليوم الخاص</span>
+                    </div>
+                    <p id="todaySpecialText" class="font-serif font-bold text-base sm:text-lg text-white mt-0.5">Loading today's chef special...</p>
+                </div>
+            </div>
+            <button id="todaySpecialAddBtn" class="w-full sm:w-auto shrink-0 bg-gold-antique hover:bg-gold-bright text-emerald-deep font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow transition-all active:scale-95 cursor-pointer">
+                + Add Special
+            </button>
+        </div>
+    </header>
+
+    <!-- Sticky Search & Category Navigation Bar -->
+    <nav class="sticky top-0 z-30 bg-parchment-base/95 backdrop-blur-md border-b border-gold-antique/40 shadow-sm">
+        <div class="max-w-6xl mx-auto px-3 sm:px-6 py-3 space-y-2.5">
+            <div class="flex items-center gap-2">
+                <div class="relative flex-1">
+                    <svg class="w-4 h-4 text-emerald-royal/60 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                    <input 
+                        type="text" 
+                        id="menuSearchInput" 
+                        placeholder="Search Biryani, Karahi, Paratha, أو ابحث بالعربي..." 
+                        class="w-full bg-white border border-gold-antique/50 focus:border-emerald-royal focus:ring-2 focus:ring-emerald-royal/15 rounded-xl pl-10 pr-9 py-2 text-sm text-emerald-deep placeholder:text-gray-400 outline-none transition-all"
+                    >
+                    <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-emerald-royal text-xs font-bold">✕</button>
+                </div>
+            </div>
+
+            <div id="categoryTabs" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-0.5"></div>
+        </div>
+    </nav>
+
+    <!-- Main Menu Sections Container -->
+    <main class="max-w-6xl mx-auto px-3 sm:px-6 py-6 sm:py-10 pb-28">
+        <div id="emptySearchState" class="hidden text-center py-16 px-4 royal-card rounded-3xl max-w-md mx-auto">
+            <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-gold-antique/20 flex items-center justify-center text-2xl">🍲</div>
+            <h3 class="font-serif font-bold text-xl text-emerald-royal">No dishes found</h3>
+            <p class="text-sm text-gray-600 mt-1">Try searching for "Biryani", "Karahi", "Paratha", "Daal", or reset filters.</p>
+            <button onclick="clearSearch()" class="mt-4 bg-emerald-royal text-gold-bright font-semibold text-sm px-5 py-2 rounded-xl">Show Full Menu</button>
+        </div>
+
+        <div id="menuContainer" class="space-y-10"></div>
+    </main>
+
+    <!-- Royal Emerald Footer -->
+    <footer class="bg-emerald-deep text-parchment-base border-t-4 border-gold-antique pt-10 pb-28 sm:pb-14 px-4">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
+            <div class="flex flex-col items-center md:items-start">
+                <span class="text-xs uppercase tracking-widest text-gold-antique font-bold mb-1">Direct Order & Hotline</span>
+                <a href="tel:+97377907370" class="text-2xl sm:text-3xl font-serif font-bold text-white hover:text-gold-bright transition-colors flex items-center gap-2.5">
+                    <span class="w-9 h-9 rounded-full bg-gold-antique text-emerald-deep flex items-center justify-center text-base">📞</span>
+                    <span>+973-77907370</span>
+                </a>
+                <p class="text-xs text-gold-pale/75 mt-1.5">Tap to call or order directly via WhatsApp</p>
+            </div>
+
+            <div class="text-center border-y md:border-y-0 md:border-x border-gold-antique/25 py-5 md:py-0 px-4">
+                <h2 class="font-serif font-extrabold text-xl text-gold-bright tracking-wide">MONAL RESTAURANT W.L.L. / <span class="font-arabic">مطعم مونال ذ.م.م</span></h2>
+                <p class="text-sm text-parchment-warm mt-1">AL HOORA, KINGDOM OF BAHRAIN</p>
+                <p class="font-arabic text-sm text-gold-antique mt-0.5">الحورة، مملكة البحرين</p>
+            </div>
+
+            <div class="flex flex-col items-center md:items-end">
+                <div class="inline-flex items-center gap-3 bg-emerald-royal/80 border border-gold-antique/50 px-5 py-3 rounded-2xl">
+                    <svg class="w-8 h-8 text-gold-bright scooter-anim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <circle cx="5.5" cy="17.5" r="2.5"/><circle cx="18.5" cy="17.5" r="2.5"/>
+                        <path d="M15 6h2l3 5.5v4h-2M8 17.5h8M5.5 15l2.5-6h5v6"/>
+                    </svg>
+                    <div class="text-left">
+                        <div class="font-arabic font-bold text-lg text-gold-bright leading-tight">التوصيل مجاني</div>
+                        <div class="text-xs font-bold tracking-wider uppercase text-white">Free Home Delivery</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto mt-8 pt-4 border-t border-gold-antique/25 text-center text-xs text-gold-pale/75">
+            Made by <span class="font-semibold text-gold-bright">Abdul Rehman</span>
+            <span class="mx-1">•</span>
+            <a href="mailto:iammaani31@gmail.com" class="hover:text-gold-bright transition-colors">iammaani31@gmail.com</a>
+        </div>
+    </footer>
+
+    <!-- Floating Bottom Cart Bar -->
+    <div id="floatingCartBar" class="fixed bottom-4 inset-x-3 sm:inset-x-auto sm:right-6 sm:w-96 z-40 transform translate-y-28 opacity-0 pointer-events-none transition-all duration-300">
+        <button onclick="openCartDrawer()" class="w-full bg-emerald-royal hover:bg-emerald-deep text-white rounded-2xl p-3.5 shadow-2xl border-2 border-gold-antique flex items-center justify-between transition-transform active:scale-98 cursor-pointer">
+            <div class="flex items-center gap-3">
+                <span id="floatingCartCount" class="w-8 h-8 rounded-xl bg-gold-antique text-emerald-deep font-extrabold text-sm flex items-center justify-center shadow">0</span>
+                <div class="text-left">
+                    <div class="text-xs text-gold-pale font-medium">Your Order • <span class="font-arabic">طلبك</span></div>
+                    <div class="text-sm font-bold text-white">View Cart & Checkout</div>
+                </div>
+            </div>
+            <div class="text-right">
+                <span id="floatingCartTotal" class="font-serif font-extrabold text-lg text-gold-bright">0.000 BHD</span>
+            </div>
+        </button>
+    </div>
+
+    <!-- Slide-Over Cart & WhatsApp Checkout Drawer -->
+    <div id="cartDrawerBackdrop" onclick="closeCartDrawer()" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 hidden opacity-0 transition-opacity duration-300"></div>
+    <aside id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-parchment-base z-50 shadow-2xl border-l-2 border-gold-antique transform translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="bg-emerald-royal text-white p-4 sm:p-5 border-b-2 border-gold-antique flex items-center justify-between">
+            <div>
+                <h2 class="font-serif font-bold text-xl text-gold-bright flex items-center gap-2">
+                    <span>Your Order</span>
+                    <span class="font-arabic text-base text-white/90">/ سلة الطلبات</span>
+                </h2>
+                <p class="text-xs text-gold-pale/80 mt-0.5">Monal Restaurant • Al Hoora, Bahrain</p>
+            </div>
+            <button onclick="closeCartDrawer()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white text-lg transition-colors">✕</button>
+        </div>
+
+        <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-4 space-y-3"></div>
+
+        <div id="cartCheckoutSection" class="bg-white border-t border-gold-antique/40 p-4 space-y-3.5 shadow-inner">
+            <div id="deliveryAddressGroup">
+                <label for="customerAddressInput" class="block text-xs font-bold uppercase tracking-wider text-emerald-royal mb-1.5">Delivery Address</label>
+                <input type="text" id="customerAddressInput" placeholder="Building / Road / Block in Al Hoora or Bahrain..." class="w-full bg-parchment-base border border-gold-antique/60 rounded-xl px-3.5 py-2 text-sm text-emerald-deep focus:border-emerald-royal outline-none">
+            </div>
+
+            <input type="text" id="orderNotesInput" placeholder="Special instructions (e.g., Less spicy, extra raita)..." class="w-full bg-parchment-base border border-gold-antique/40 rounded-xl px-3.5 py-2 text-xs text-emerald-deep focus:border-emerald-royal outline-none">
+
+            <div class="border-t border-dashed border-gold-antique/60 pt-2.5 space-y-1 text-sm">
+                <div class="flex justify-between text-gray-600">
+                    <span>Delivery Fee (<span class="font-arabic">التوصيل مجاني</span>)</span>
+                    <span class="font-bold text-emerald-700">FREE (0.000 BHD)</span>
+                </div>
+                <div class="flex justify-between items-center text-base font-extrabold text-emerald-royal pt-1">
+                    <span>Total Amount</span>
+                    <span id="drawerTotalPrice" class="font-serif text-xl text-emerald-deep">0.000 BHD</span>
+                </div>
+            </div>
+
+            <button onclick="sendOrderViaWhatsApp()" class="w-full bg-[#1fa855] hover:bg-[#198f47] text-white font-bold py-3.5 px-4 rounded-xl shadow-lg flex items-center justify-center gap-2.5 transition-all active:scale-98 cursor-pointer">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+                </svg>
+                <span>Order via WhatsApp (+973-77907370)</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Toast Notification Banner -->
+    <div id="toastNotification" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-emerald-deep text-gold-bright border border-gold-antique px-4 py-2.5 rounded-full shadow-xl text-xs sm:text-sm font-semibold opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2">
+        <span>✓</span>
+        <span id="toastMessage">Added to your order</span>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        /**
+         * COMPLETE MONAL RESTAURANT MENU DATA (AL HOORA, KINGDOM OF BAHRAIN)
+         * Currency: BHD (Bahraini Dinar, formatted to 3 decimal places)
+         */
+        const MENU_DATA = [
+            {
+                id: 'main-courses',
+                titleEn: 'Main Courses',
+                titleAr: 'الأطباق الرئيسية',
+                icon: '🍛',
+                items: [
+                    {
+                        id: 'mc-1',
+                        nameEn: 'Chicken Biryani',
+                        nameAr: 'برياني دجاج',
+                        image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=300&q=80',
+                        prices: { Half: 0.600, Full: 1.000, 'Extra Piece': 0.900 },
+                        popular: true
+                    },
+                    {
+                        id: 'mc-2',
+                        nameEn: 'Mutton Biryani',
+                        nameAr: 'برياني لحم',
+                        image: 'https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=300&q=80',
+                        prices: { Half: 1.000, Full: 1.600, 'Extra Piece': 1.400 },
+                        popular: true
+                    },
+                    {
+                        id: 'mc-3',
+                        nameEn: 'Chicken Pulao',
+                        nameAr: 'بيلو دجاج',
+                        image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=300&q=80',
+                        prices: { Half: 0.600, Full: 1.000, 'Extra Piece': 0.900 }
+                    },
+                    {
+                        id: 'mc-4',
+                        nameEn: 'Mutton Pulao',
+                        nameAr: 'بيلو لحم',
+                        image: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=300&q=80',
+                        prices: { Half: 1.000, Full: 1.600, 'Extra Piece': 1.400 },
+                        popular: true
+                    },
+                    {
+                        id: 'mc-5',
+                        nameEn: 'Vegetables Pulao',
+                        nameAr: 'بيلو خضار',
+                        image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=300&q=80',
+                        prices: { Half: 0.500, Full: 0.800 }
+                    }
+                ]
+            },
+            {
+                id: 'special-karahi',
+                titleEn: 'Special Karahi',
+                titleAr: 'الكراهي الخاصة',
+                icon: '🔥',
+                items: [
+                    { id: 'sk-1', nameEn: 'Monal Special Chicken Karahi, 1/2 kg', nameAr: 'مونال كبسة دجاج خاص 1/2 كيلو', image: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=300&q=80', prices: { '1/2 Kg': 2.500 }, popular: true },
+                    { id: 'sk-2', nameEn: 'Monal Special Mutton Karahi, 1/2 kg', nameAr: 'مونال كبسة لحم خاص 1/2 كيلو', image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=300&q=80', prices: { '1/2 Kg': 3.500 } },
+                    { id: 'sk-3', nameEn: 'Monal Special Chicken Karahi, 1 kg', nameAr: 'مونال كبسة دجاج خاص 1 كيلو', image: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=300&q=80', prices: { '1 Kg': 4.500 } },
+                    { id: 'sk-4', nameEn: 'Monal Special Mutton Karahi, 1 kg', nameAr: 'مونال كبسة لحم خاص 1 كيلو', image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=300&q=80', prices: { '1 Kg': 7.000 }, popular: true }
+                ]
+            },
+            {
+                id: 'evening-thali-specials',
+                titleEn: 'Monal Evening & Thali Specials',
+                titleAr: 'عروض مونال الخاصة',
+                icon: '✨',
+                items: [
+                    {
+                        id: 'ets-1',
+                        nameEn: 'Monal Special Tawa Keema',
+                        nameAr: 'تاوا كيما خاص',
+                        image: './Tawa Keema.jpeg',
+                        prices: { Single: 0.600, Full: 1.000 },
+                        popular: true
+                    },
+                    {
+                        id: 'ets-2',
+                        nameEn: 'Monal Special Chapli Kebab',
+                        nameAr: 'شابلي كباب خاص',
+                        image: './Chapli Kabab.jpeg',
+                        prices: { Full: 1.000 },
+                        popular: true
+                    },
+                    {
+                        id: 'ets-3',
+                        nameEn: 'Monal Special Thali',
+                        nameAr: 'اسپیشل تھالی',
+                        image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=300&q=80',
+                        badge: 'Complete Meal Deal',
+                        description: 'Includes: 2 Paratha (2 پراٹھا), Halwa (حلوہ), Raita (رائتہ), Channa (چنا)',
+                        prices: { Thali: 0.300 },
+                        popular: true
+                    }
+                ]
+            },
+            {
+                id: 'daal-items',
+                titleEn: 'Daal Items',
+                titleAr: 'أطباق العدس',
+                icon: '🍲',
+                items: [
+                    { id: 'dl-1', nameEn: 'Daal Chana - Daal Maash', nameAr: 'عدس شانا - عدس ماش', image: 'https://t3.ftcdn.net/jpg/21/86/55/32/240_F_2186553292_nXe4ExTqmlaMRtXi0vrhpA3PQpgcZ4SV.jpg', prices: { Half: 0.400, Full: 0.600 } },
+                    { id: 'dl-2', nameEn: 'Daal Mix', nameAr: 'عدس مشكل', image: './Daal Mix.jpeg', prices: { Half: 0.400, Full: 0.600 } },
+                    { id: 'dl-3', nameEn: 'Daal Gosht', nameAr: 'عدس باللحم', image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=300&q=80', prices: { Half: 0.700, Full: 1.200 }, popular: true },
+                    { id: 'dl-4', nameEn: 'Daal Chicken', nameAr: 'عدس بالدجاج', prices: { Half: 0.600, Full: 1.000 } },
+                    { id: 'dl-5', nameEn: 'White Channay', nameAr: 'حمص أبيض', image: './White Chany.jpeg', prices: { Half: 0.400, Full: 0.600 } },
+                    { id: 'dl-6', nameEn: 'Mix Sabzi - Vegetables', nameAr: 'خضار مشكلة', image: './Mix Sabzi.jpeg', prices: { Half: 0.400, Full: 0.600 } },
+                    { id: 'dl-7', nameEn: 'Rajma', nameAr: 'فاصوليا حمراء', image: './Rajma.jpeg', prices: { Half: 0.400, Full: 0.600 } }
+                ]
+            },
+            {
+                id: 'food-items',
+                titleEn: 'Food Items',
+                titleAr: 'أطباق الطعام',
+                icon: '🥘',
+                items: [
+                    { id: 'fi-1', nameEn: 'Chicken Masala', nameAr: 'دجاج ماسالا', image: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=300&q=80', prices: { Half: 0.600, Full: 1.000 } },
+                    { id: 'fi-2', nameEn: 'Mutton Masala', nameAr: 'لحم ماسالا', image: './Mutton Masala.jpeg', prices: { Half: 0.700, Full: 1.200 } },
+                    { id: 'fi-3', nameEn: 'Chicken Qorma', nameAr: 'قورمة دجاج', image: './Chiken Korma.jpeg', prices: { Half: 0.600, Full: 1.000 } },
+                    { id: 'fi-4', nameEn: 'Mutton Qorma', nameAr: 'قورمة لحم', prices: { Half: 0.700, Full: 1.200 } },
+                    { id: 'fi-5', nameEn: 'Mattar Keema', nameAr: 'بازيلاء باللحم المفروم', image: './Tawa Keema.jpeg', prices: { Half: 0.700, Full: 1.200 } },
+                    { id: 'fi-6', nameEn: 'Pakistani Tandoori Roti (2 Pieces)', nameAr: 'خبز روتي تندوري قطعتين', image: './Rooti.jpeg', prices: { Standard: 0.100 } },
+                    { id: 'fi-7', nameEn: 'Chapli Kabab', nameAr: 'شابلي كباب', image: './Chapli Kabab.jpeg', prices: { Full: 1.000 }, popular: true },
+                    { id: 'fi-8', nameEn: 'Chicken Karahi', nameAr: 'كراهي دجاج', image: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=300&q=80', prices: { Half: 0.600, Full: 1.000 }, popular: true },
+                    { id: 'fi-9', nameEn: 'Aloo Gosht', nameAr: 'لحم بالبطاطس', image: './Alo Ghost.jpeg', prices: { Half: 0.700, Full: 1.200 } }
+                ]
+            },
+            {
+                id: 'breakfast-items',
+                titleEn: 'Breakfast Items',
+                titleAr: 'أطباق الإفطار',
+                icon: '🍳',
+                items: [
+                    { id: 'bf-1', nameEn: 'White Chana', nameAr: 'حمص أبيض', image: './White Chany.jpeg', prices: { Half: 0.300, Full: 0.500 } },
+                    { id: 'bf-2', nameEn: 'Anda Chana', nameAr: 'حمص بالبيض', image: './Anda Chana.jpeg', prices: { Half: 0.400, Full: 0.600 }, popular: true },
+                    { id: 'bf-3', nameEn: 'Kofta Chana', nameAr: 'حمص بالكفتة', image: './Kofta Chana.jpeg', prices: { Half: 0.400, Full: 0.600 } },
+                    { id: 'bf-4', nameEn: 'Omelette', nameAr: 'أومليت', image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=300&q=80', prices: { Standard: 0.300 } },
+                    { id: 'bf-5', nameEn: 'Saada Paratha (2 pieces)', nameAr: 'باراتا سادة قطعتين', image: './Paranta.jpeg', prices: { Standard: 0.100 } },
+                    { id: 'bf-6', nameEn: 'Special Paratha', nameAr: 'باراتا خاص', image: './Paranta.jpeg', prices: { Standard: 0.100 } },
+                    { id: 'bf-7', nameEn: 'Aloo Paratha', nameAr: 'باراتا بالبطاطس', image: './Paranta.jpeg', prices: { Standard: 0.200 }, popular: true },
+                    { id: 'bf-8', nameEn: 'Mouli Paratha', nameAr: 'باراتا بالفجل', image: './Paranta.jpeg', prices: { Standard: 0.250 } },
+                    { id: 'bf-9', nameEn: 'Gobi Paratha', nameAr: 'باراتا بالقرنبيط', image: './Paranta.jpeg', prices: { Standard: 0.250 } },
+                    { id: 'bf-10', nameEn: 'Anda Paratha', nameAr: 'باراتا بالبيض', image: './Paranta.jpeg', prices: { Standard: 0.300 } },
+                    { id: 'bf-11', nameEn: 'Chicken Paratha', nameAr: 'باراتا بالدجاج', image: './Paranta.jpeg', prices: { Standard: 0.400 } },
+                    { id: 'bf-12', nameEn: 'Anda Kofta', nameAr: 'كفتة بالبيض', image: './Kofta Chana.jpeg', prices: { Half: 0.600, Full: 1.000 } },
+                    { id: 'bf-13', nameEn: 'Half Fry Egg / Full Fry Egg', nameAr: 'بيض عيون / بيض مقلي كامل', image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=300&q=80', prices: { Standard: 0.150 } }
+                ]
+            },
+            {
+                id: 'weekly-specials',
+                titleEn: 'Weekly Specials',
+                titleAr: 'العروض الأسبوعية',
+                icon: '👑',
+                items: [
+                    { id: 'ws-1', dayIndex: 5, nameEn: 'Friday – Mutton Paya', nameAr: 'الجمعة – بايا لحم', image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=300&q=80', prices: { Special: 1.200 }, popular: true },
+                    { id: 'ws-2', dayIndex: 5, nameEn: 'Friday – Mutton Pulao', nameAr: 'الجمعة – بولاو لحم', image: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=300&q=80', prices: { Special: 1.000 } },
+                    { id: 'ws-3', dayIndex: 5, nameEn: 'Friday – Zarda Sweet Chawal', nameAr: 'الجمعة – زردة أرز حلو', image: './Zarda.jpeg', prices: { Special: 1.000 } },
+                    { id: 'ws-4', dayIndex: 6, nameEn: 'Saturday – Chicken Handi Boneless', nameAr: 'السبت – دجاج هاندي بدون عظم', image: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=300&q=80', prices: { Special: 1.000 } },
+                    { id: 'ws-5', dayIndex: 0, nameEn: 'Sunday – Chicken White Qorma', nameAr: 'الأحد – قورمة دجاج بيضاء', image: './White Korma Chiken.jpeg', prices: { Special: 1.000 } },
+                    { id: 'ws-6', dayIndex: 1, nameEn: 'Monday – Chicken Haleem', nameAr: 'الإثنين – حليم دجاج', image: './Haleem.jpeg', prices: { Special: 1.000 } },
+                    { id: 'ws-7', dayIndex: 2, nameEn: 'Tuesday – Kari Pakora', nameAr: 'الثلاثاء – كاري باكورا', image: './Karhi Pakora.jpeg', prices: { Special: 0.600 } },
+                    { id: 'ws-8', dayIndex: 3, nameEn: 'Wednesday – Magaz & Kaleji', nameAr: 'الأربعاء – دماغ وكبدة', image: './Majez kahalji.jpeg', prices: { Special: 1.000 } },
+                    { id: 'ws-9', dayIndex: 4, nameEn: 'Thursday – Beef Nihari', nameAr: 'الخميس – نهاري لحم بقري', image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=300&q=80', prices: { Special: 1.200 }, popular: true }
+                ]
+            },
+            {
+                id: 'drinks',
+                titleEn: 'Drinks',
+                titleAr: 'المشروبات',
+                icon: '🥤',
+                items: [
+                    { id: 'dr-1', nameEn: 'Karak Tea', nameAr: 'شاي كرك', image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=300&q=80', prices: { Cup: 0.100 }, popular: true },
+                    { id: 'dr-2', nameEn: 'Lassi', nameAr: 'لاسي', image: './Lassi.jpeg', prices: { Glass: 0.300 } },
+                    { id: 'dr-3', nameEn: 'Pepsi, Mirinda, 7Up & Dew (330ml)', nameAr: 'بيبسي، ميريندا، سفن أب وديو', image: './Pepsi marinda dew.jpeg', prices: { Can: 0.300 } },
+                    { id: 'dr-4', nameEn: 'Water 500ml', nameAr: 'ماء 500 مل', prices: { Bottle: 0.100 } },
+                    { id: 'dr-5', nameEn: 'Water 1.5L', nameAr: 'ماء 1.5 لتر', prices: { Bottle: 0.200 } }
+                ]
+            }
+        ];
+
+        // State Management
+        let activeCategory = 'all';
+        let searchQuery = '';
+        let selectedOptions = {};
+        let cart = [];
+
+        function formatBHD(amount) {
+            return Number(amount).toFixed(3) + ' BHD';
+        }
+
+        function initDefaultSelections() {
+            MENU_DATA.forEach(cat => {
+                cat.items.forEach(item => {
+                    const variants = Object.keys(item.prices);
+                    selectedOptions[item.id] = variants.includes('Full') ? 'Full' : variants[0];
+                });
+            });
+        }
+
+        function initTodaySpecial() {
+            const today = new Date().getDay();
+            const weeklyCat = MENU_DATA.find(c => c.id === 'weekly-specials');
+            const todaysItems = weeklyCat.items.filter(i => i.dayIndex === today);
+            const featured = todaysItems[0] || weeklyCat.items[0];
+            const variant = Object.keys(featured.prices)[0];
+            const price = featured.prices[variant];
+
+            document.getElementById('todaySpecialText').textContent = `${featured.nameEn} — ${formatBHD(price)}`;
+            const btn = document.getElementById('todaySpecialAddBtn');
+            btn.onclick = () => addToCart(featured.id, featured.nameEn, featured.nameAr, variant, price);
+        }
+
+        function renderCategoryTabs() {
+            const container = document.getElementById('categoryTabs');
+            const allPill = `
+                <button onclick="selectCategory('all')" 
+                    class="shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-1.5 border ${
+                        activeCategory === 'all' 
+                        ? 'bg-emerald-royal text-gold-bright border-gold-antique shadow-md' 
+                        : 'bg-white text-emerald-royal border-gold-antique/40 hover:border-gold-antique'
+                    }">
+                    <span>✦ All Menu</span>
+                </button>
+            `;
+
+            const catPills = MENU_DATA.map(cat => {
+                const isActive = activeCategory === cat.id;
+                return `
+                    <button onclick="selectCategory('${cat.id}')" 
+                        class="shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 border ${
+                            isActive 
+                            ? 'bg-emerald-royal text-gold-bright border-gold-antique shadow-md' 
+                            : 'bg-white text-emerald-royal border-gold-antique/40 hover:border-gold-antique'
+                        }">
+                        <span>${cat.icon}</span>
+                        <span>${cat.titleEn}</span>
+                        <span class="font-arabic text-xs opacity-85">(${cat.titleAr})</span>
+                    </button>
+                `;
+            }).join('');
+
+            container.innerHTML = allPill + catPills;
+        }
+
+        function selectCategory(catId) {
+            activeCategory = catId;
+            renderCategoryTabs();
+            renderMenu();
+        }
+
+        function selectVariant(itemId, variant) {
+            selectedOptions[itemId] = variant;
+            renderMenu();
+        }
+
+        function renderMenu() {
+            const container = document.getElementById('menuContainer');
+            const emptyState = document.getElementById('emptySearchState');
+            const q = searchQuery.trim().toLowerCase();
+
+            let totalVisibleItems = 0;
+            let html = '';
+
+            MENU_DATA.forEach(category => {
+                if (activeCategory !== 'all' && activeCategory !== category.id) return;
+
+                const filteredItems = category.items.filter(item => {
+                    if (!q) return true;
+                    return (
+                        item.nameEn.toLowerCase().includes(q) ||
+                        item.nameAr.includes(q) ||
+                        (item.description && item.description.toLowerCase().includes(q)) ||
+                        (item.badge && item.badge.toLowerCase().includes(q)) ||
+                        category.titleEn.toLowerCase().includes(q) ||
+                        category.titleAr.includes(q)
+                    );
+                });
+
+                if (filteredItems.length === 0) return;
+                totalVisibleItems += filteredItems.length;
+
+                html += `
+                    <section class="space-y-4">
+                        <div class="bg-gradient-to-r from-emerald-royal via-emerald-light to-emerald-royal text-white px-4 sm:px-6 py-3.5 rounded-2xl border-2 border-gold-antique shadow-md flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <span class="text-xl sm:text-2xl">${category.icon}</span>
+                                <h2 class="font-serif font-bold text-lg sm:text-2xl text-gold-bright tracking-wide">${category.titleEn}</h2>
+                            </div>
+                            <span class="font-arabic font-bold text-lg sm:text-2xl text-gold-pale">${category.titleAr}</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4">
+                            ${filteredItems.map(item => renderDishCard(item, category.icon)).join('')}
+                        </div>
+                    </section>
+                `;
+            });
+
+            if (totalVisibleItems === 0) {
+                container.innerHTML = '';
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+                container.innerHTML = html;
+                observeCards();
+            }
+        }
+
+        function renderDishCard(item, fallbackIcon = '🍲') {
+            const variants = Object.keys(item.prices);
+            const currentVariant = selectedOptions[item.id] || variants[0];
+            const currentPrice = item.prices[currentVariant];
+            const hasMultipleVariants = variants.length > 1;
+
+            const cartItem = cart.find(c => c.key === `${item.id}_${currentVariant}`);
+            const qtyInCart = cartItem ? cartItem.qty : 0;
+
+            const imageHtml = item.image
+                ? `<img 
+                        src="${item.image}" 
+                        alt="${item.nameEn}" 
+                        loading="lazy"
+                        onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\\'text-2xl\\'>${fallbackIcon}</span>';"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                   >`
+                : `<span class="text-2xl">${fallbackIcon}</span>`;
+
+            return `
+                <article class="royal-card reveal-card group rounded-2xl p-3.5 sm:p-4 flex flex-col justify-between gap-3">
+                    <div class="flex items-start justify-between gap-3">
+                        <div class="flex items-start gap-3 min-w-0">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shrink-0 bg-parchment-warm border border-gold-antique/50 flex items-center justify-center shadow-xs">
+                                ${imageHtml}
+                            </div>
+
+                            <div class="space-y-1 min-w-0">
+                                <div class="flex flex-wrap items-center gap-1.5">
+                                    <h3 class="font-serif font-bold text-base sm:text-lg text-emerald-deep leading-snug">${item.nameEn}</h3>
+                                    ${item.popular ? `<span class="text-[10px] font-bold uppercase tracking-wider bg-gold-antique/25 text-gold-rich border border-gold-antique/50 px-2 py-0.5 rounded-full">★ Popular</span>` : ''}
+                                    ${item.badge ? `<span class="text-[10px] font-bold tracking-wide bg-emerald-royal text-gold-bright border border-gold-antique/60 px-2.5 py-0.5 rounded-full">🕒 ${item.badge}</span>` : ''}
+                                </div>
+                                <p class="font-arabic font-semibold text-sm sm:text-base text-emerald-royal/85">${item.nameAr}</p>
+                                ${item.description ? `<p class="text-xs text-emerald-deep/80 bg-parchment-warm/80 border border-gold-antique/30 rounded-lg px-2.5 py-1 mt-1 font-medium">${item.description}</p>` : ''}
+                            </div>
+                        </div>
+
+                        <div class="text-right shrink-0">
+                            <div class="font-serif font-extrabold text-sm sm:text-base text-emerald-royal bg-parchment-warm px-2.5 py-1 rounded-xl border border-gold-antique/50">
+                                ${formatBHD(currentPrice)}
+                            </div>
+                            <span class="text-[11px] font-semibold text-gray-500 block mt-0.5">${currentVariant}</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-gold-antique/25">
+                        ${hasMultipleVariants ? `
+                            <div class="inline-flex flex-wrap bg-parchment-warm p-1 rounded-xl border border-gold-antique/40 gap-1">
+                                ${variants.map(v => `
+                                    <button type="button" onclick="selectVariant('${item.id}', '${v}')" 
+                                        class="px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                                            currentVariant === v 
+                                            ? 'bg-emerald-royal text-gold-bright shadow-xs' 
+                                            : 'text-emerald-royal/75 hover:text-emerald-royal'
+                                        }">
+                                        ${v} (${item.prices[v].toFixed(3)})
+                                    </button>
+                                `).join('')}
+                            </div>
+                        ` : `
+                            <span class="text-xs font-semibold text-emerald-royal/70 bg-parchment-warm px-2.5 py-1 rounded-lg border border-gold-antique/30">
+                                Portion: ${currentVariant}
+                            </span>
+                        `}
+
+                        ${qtyInCart === 0 ? `
+                            <button type="button" onclick="addToCart('${item.id}', '${item.nameEn.replace(/'/g, "\\'")}', '${item.nameAr}', '${currentVariant}', ${currentPrice})"
+                                class="ml-auto bg-emerald-royal hover:bg-emerald-deep text-gold-bright font-bold text-xs sm:text-sm px-4 py-2 rounded-xl shadow-sm border border-gold-antique/50 transition-all active:scale-95 cursor-pointer">
+                                + Add
+                            </button>
+                        ` : `
+                            <div class="ml-auto inline-flex items-center gap-2 bg-emerald-royal text-white rounded-xl px-2 py-1 border border-gold-antique">
+                                <button type="button" onclick="updateCartQty('${item.id}_${currentVariant}', -1)" class="w-6 h-6 rounded-lg bg-white/15 hover:bg-white/25 font-bold text-sm flex items-center justify-center cursor-pointer">−</button>
+                                <span class="font-bold text-xs min-w-[18px] text-center text-gold-bright">${qtyInCart}</span>
+                                <button type="button" onclick="updateCartQty('${item.id}_${currentVariant}', 1)" class="w-6 h-6 rounded-lg bg-gold-antique text-emerald-deep font-bold text-sm flex items-center justify-center cursor-pointer">+</button>
+                            </div>
+                        `}
+                    </div>
+                </article>
+            `;
+        }
+
+        function observeCards() {
+            const cards = document.querySelectorAll('.reveal-card');
+            if (!('IntersectionObserver' in window)) {
+                cards.forEach(c => c.classList.add('is-visible'));
+                return;
+            }
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, idx) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('is-visible');
+                        }, Math.min(idx * 45, 250));
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.08 });
+
+            cards.forEach(card => observer.observe(card));
+        }
+
+        document.getElementById('menuSearchInput').addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            const clearBtn = document.getElementById('clearSearchBtn');
+            if (searchQuery.trim().length > 0) {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+            }
+            renderMenu();
+        });
+
+        function clearSearch() {
+            searchQuery = '';
+            document.getElementById('menuSearchInput').value = '';
+            document.getElementById('clearSearchBtn').classList.add('hidden');
+            activeCategory = 'all';
+            renderCategoryTabs();
+            renderMenu();
+        }
+
+        function addToCart(id, nameEn, nameAr, variant, price) {
+            const key = `${id}_${variant}`;
+            const existing = cart.find(item => item.key === key);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ key, id, nameEn, nameAr, variant, price, qty: 1 });
+            }
+            updateCartUI();
+            renderMenu();
+            showToast(`Added ${nameEn} (${variant})`);
+        }
+
+        function updateCartQty(key, delta) {
+            const idx = cart.findIndex(item => item.key === key);
+            if (idx === -1) return;
+            cart[idx].qty += delta;
+            if (cart[idx].qty <= 0) {
+                cart.splice(idx, 1);
+            }
+            updateCartUI();
+            renderMenu();
+        }
+
+        function updateCartUI() {
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            const floatingBar = document.getElementById('floatingCartBar');
+            document.getElementById('floatingCartCount').textContent = totalQty;
+            document.getElementById('floatingCartTotal').textContent = formatBHD(totalPrice);
+
+            if (totalQty > 0) {
+                floatingBar.classList.remove('translate-y-28', 'opacity-0', 'pointer-events-none');
+            } else {
+                floatingBar.classList.add('translate-y-28', 'opacity-0', 'pointer-events-none');
+            }
+
+            const drawerContainer = document.getElementById('cartItemsContainer');
+            const checkoutSection = document.getElementById('cartCheckoutSection');
+            document.getElementById('drawerTotalPrice').textContent = formatBHD(totalPrice);
+
+            if (cart.length === 0) {
+                checkoutSection.classList.add('hidden');
+                drawerContainer.innerHTML = `
+                    <div class="text-center py-14 px-4">
+                        <div class="text-4xl mb-3">🍽️</div>
+                        <h3 class="font-serif font-bold text-lg text-emerald-royal">Your order plate is empty</h3>
+                        <p class="text-xs text-gray-500 mt-1">Select delicious dishes from Monal Restaurant's menu to start your order.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            checkoutSection.classList.remove('hidden');
+            drawerContainer.innerHTML = cart.map(item => `
+                <div class="bg-white border border-gold-antique/40 rounded-2xl p-3.5 flex items-center justify-between gap-3 shadow-xs">
+                    <div class="min-w-0 flex-1">
+                        <div class="font-serif font-bold text-sm text-emerald-deep truncate">${item.nameEn}</div>
+                        <div class="font-arabic text-xs text-emerald-royal/80">${item.nameAr}</div>
+                        <div class="text-xs text-gray-500 mt-0.5">${item.variant} • ${formatBHD(item.price)} each</div>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <button onclick="updateCartQty('${item.key}', -1)" class="w-7 h-7 rounded-lg bg-parchment-warm hover:bg-gold-antique/30 text-emerald-royal font-bold border border-gold-antique/40 cursor-pointer">−</button>
+                        <span class="font-bold text-sm w-5 text-center text-emerald-deep">${item.qty}</span>
+                        <button onclick="updateCartQty('${item.key}', 1)" class="w-7 h-7 rounded-lg bg-emerald-royal text-gold-bright font-bold cursor-pointer">+</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openCartDrawer() {
+            const backdrop = document.getElementById('cartDrawerBackdrop');
+            const drawer = document.getElementById('cartDrawer');
+            backdrop.classList.remove('hidden');
+            setTimeout(() => {
+                backdrop.classList.remove('opacity-0');
+                drawer.classList.remove('translate-x-full');
+            }, 10);
+        }
+
+        function closeCartDrawer() {
+            const backdrop = document.getElementById('cartDrawerBackdrop');
+            const drawer = document.getElementById('cartDrawer');
+            backdrop.classList.add('opacity-0');
+            drawer.classList.add('translate-x-full');
+            setTimeout(() => {
+                backdrop.classList.add('hidden');
+            }, 300);
+        }
+
+        function sendOrderViaWhatsApp() {
+            if (cart.length === 0) return;
+
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const notes = document.getElementById('orderNotesInput').value.trim();
+
+            const addrVal = document.getElementById('customerAddressInput').value.trim() || 'Al Hoora / Bahrain (Share live pin)';
+            const locationLine = `🛵 *Order Type:* Free Home Delivery\n📍 *Address:* ${addrVal}`;
+
+            const itemLines = cart.map((item, i) => 
+                `${i + 1}. *${item.nameEn}* (${item.variant}) x${item.qty} — ${(item.price * item.qty).toFixed(3)} BHD`
+            ).join('\n');
+
+            const message = [
+                `🌙 *NEW ORDER — MONAL RESTAURANT (مطعم مونال)*`,
+                `----------------------------------`,
+                locationLine,
+                `----------------------------------`,
+                `*Order Details:*`,
+                itemLines,
+                `----------------------------------`,
+                notes ? `📝 *Notes:* ${notes}\n` : '',
+                `🚚 *Delivery:* FREE (التوصيل مجاني)`,
+                `💰 *TOTAL:* *${total.toFixed(3)} BHD*`,
+                `----------------------------------`,
+                `Please confirm my order. Thank you!`
+            ].filter(Boolean).join('\n');
+
+            const whatsappUrl = `https://wa.me/97377907370?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        }
+
+        let toastTimeout;
+        function showToast(msg) {
+            const toast = document.getElementById('toastNotification');
+            document.getElementById('toastMessage').textContent = msg;
+            toast.classList.remove('opacity-0', '-translate-y-2');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('opacity-0');
+            }, 2200);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initDefaultSelections();
+            initTodaySpecial();
+            renderCategoryTabs();
+            renderMenu();
+            updateCartUI();
+        });
+    </script>
+</body>
+</html>
